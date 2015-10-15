@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <name>hadoop</name>
+  <url>http://svn.apache.org/repos/asf/hadoop/common/branches/branch-0.14</url>   
+  <groupId>org.apache</groupId>
+  <artifactId>hadoop</artifactId>
+  <version>0.14.5-dev-core</version>
+  <packaging>jar</packaging>
+  <build>
+  <directory>build/</directory>
+  <plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.8</version>
+        <executions>
+            <execution>
+                <phase>compile</phase>
+                <configuration>
+                        <target>
+                            <ant target="jar" inheritRefs="true">
+                            <property name="build.compiler" value="extJavac"/>
+                            <property name="build.sysclasspath" value="last"/>
+                            </ant>
+                        </target>
+                    </configuration>
+                    <goals>
+                        <goal>run</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+  </build>
+</project>
